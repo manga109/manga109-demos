@@ -2,6 +2,17 @@
 
 This repository is a collection of demo codes for the [Manga109 dataset](http://www.manga109.org/en/).
 
+Manga109 is the largest dataset for manga (Japanese comic) images,
+that is made publicly available for academic research purposes with proper copyright notation.
+
+To download images/annotations of Manga109, please visit [this website](http://www.manga109.org/en/download.html) and send an application via the form.
+You will then receive a password for downloading the images (109 titles of manga
+as jpeg files)
+and their annotations (bounding box coordinates of face, body, frame, and speech balloon with texts,
+in the form of XML).
+
+Please see [manga109api](https://github.com/manga109/manga109api) as well when using the dataset.
+
 ## Contents
 
 - Annotation visualization demo - `./visualization`
