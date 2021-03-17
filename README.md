@@ -2,6 +2,9 @@
 
 This repository is a collection of demo codes for the [Manga109 dataset](http://www.manga109.org/en/).
 
+## Contents
+
+- Annotation visualization demo - `./visualization`
 
 
 ## Citations
