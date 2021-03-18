@@ -7,7 +7,7 @@ Executing `python extract.py` will output a cropped image/s based on the specifi
 
 For a usage example, if you want to extract a faces from 5 pages of YumeNoKayoiji's book, please run the following command : 
 
-```python
+```bash
 python extract.py --book YumeNoKayoiji --annotation face --pages 5 --preprocess --size 256
 ```
 
