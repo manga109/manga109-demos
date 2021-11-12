@@ -17,6 +17,7 @@ Please see [manga109api](https://github.com/manga109/manga109api) as well when u
 
 - Annotation visualization demo - `./visualization`
 - Bounding box cropping demo - `./extraction`
+- MSCOCO format conversion - `./coco-format-conversion`
 
 
 ## Citations
