@@ -167,5 +167,5 @@ if __name__ == "__main__":
 
     for outname, data_dict in zip(["train", "val", "test"], [data_training, data_val, data_test]):
         coco_json = json.dumps(data_dict)
-        with open(str(args.outpath / "instances_{}.json".format(outname)), "wt") as f:
+        with (args.outpath / "instances_{}.json".format(outname)).open("wt") as f:
             f.write(coco_json)
