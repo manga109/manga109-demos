@@ -6,7 +6,7 @@ This script converts the Manga109 XML annotations to MSCOCO's JSON format.
 Run the following command to execute the conversion. For the `--manga109-root-dir` option, specify the path to the Manga109 dataset root directory (not the "annotations" directory).
 
 ```bash
-python coco_format_conversion.py --manga109-root-dir YOUR_DIR/Manga109_2017_09_28 --output-dir [out-dir] --train-val-cutoff [cutoff_ratio] --val-test-cutoff [cutoff_ratio]
+python coco_format_conversion.py --manga109-root-dir YOUR_DIR/Manga109_YYYY_MM_DD --output-dir [out-dir] --train-val-cutoff [cutoff_ratio] --val-test-cutoff [cutoff_ratio]
 ```
 
 The training-validation cutoff and validation-testing cutoff are set to 0.8 and 0.9 by default, repsectively.
