@@ -20,8 +20,8 @@ d_licenses = [OrderedDict([
 d_categories = [
     OrderedDict([
         ("id", 0),
-        ("name", "panel"),
-        ("supercategory", "panel"),
+        ("name", "frame"),
+        ("supercategory", "frame"),
     ]),
     OrderedDict([
         ("id", 1),
@@ -78,8 +78,8 @@ def images_annotations(manga109_root_dir, train_val_cutoff, val_test_cutoff):
              val_test_cutoff else ret_images_test).append(image)
 
         # Annotations
-        panel_bb_list = tuple(bb_iter(title, manga109_root_dir, categories=["frame"]))
-        for i_id, (i_page, i_category, bb) in enumerate(panel_bb_list):
+        frame_bb_list = tuple(bb_iter(title, manga109_root_dir, categories=["frame"]))
+        for i_id, (i_page, i_category, bb) in enumerate(frame_bb_list):
             bb_id = i_id + annotation_id_base
             image_id = i_page + image_id_base
             p1 = bb["@xmin"], bb["@ymin"]
@@ -146,8 +146,8 @@ if __name__ == "__main__":
                         type=str,
                         help="The root directory of the Manga109 dataset.")
     parser.add_argument("--outpath",
-                        type=str,
-                        default="./out/",
+                        type=pathlib.Path,
+                        default=pathlib.Path("./out/"),
                         help="The output directory.")
     parser.add_argument("--train-val-cutoff",
                         type=float,
@@ -163,10 +163,9 @@ if __name__ == "__main__":
 
     data_training, data_val, data_test = getcoco(manga109_root_dir, args.train_val_cutoff, args.val_test_cutoff)
 
-    outpath = args.outpath
-    pathlib.Path(outpath).mkdir(parents=True, exist_ok=True)
+    args.outpath.mkdir(parents=True, exist_ok=True)
 
     for outname, data_dict in zip(["train", "val", "test"], [data_training, data_val, data_test]):
         coco_json = json.dumps(data_dict)
-        with open(str(pathlib.Path(outpath) / "instances_{}.json".format(outname)), "wt") as f:
+        with open(str(args.outpath / "instances_{}.json".format(outname)), "wt") as f:
             f.write(coco_json)
