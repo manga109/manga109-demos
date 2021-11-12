@@ -8,7 +8,7 @@ Executing `python visualization.py` will output the image shown in the Output se
 When using the code, please specify your dataset path. For example, if you would like to visualize the page 6 of "ARMS", please run the following command : 
 
 ```bash
-python visualization.py --manga109_root_dir YOUR_DIR/Manga109_2017_09_28 --book ARMS --page_index 6
+python visualization.py --manga109_root_dir YOUR_DIR/Manga109_YYYY_MM_DD --book ARMS --page_index 6
 ```
 
 ## Output
