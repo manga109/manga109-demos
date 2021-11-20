@@ -78,8 +78,8 @@ def images_annotations(manga109_root_dir, train_val_cutoff, val_test_cutoff):
              val_test_cutoff else ret_images_test).append(image)
 
         # Annotations
-        frame_bb_list = tuple(bb_iter(title, manga109_root_dir, categories=["frame"]))
-        for i_id, (i_page, i_category, bb) in enumerate(frame_bb_list):
+        bb_list = tuple(bb_iter(title, manga109_root_dir, categories=[d["name"] for d in d_categories]))
+        for i_id, (i_page, i_category, bb) in enumerate(bb_list):
             bb_id = i_id + annotation_id_base
             image_id = i_page + image_id_base
             p1 = bb["@xmin"], bb["@ymin"]
@@ -167,5 +167,7 @@ if __name__ == "__main__":
 
     for outname, data_dict in zip(["train", "val", "test"], [data_training, data_val, data_test]):
         coco_json = json.dumps(data_dict)
+        print(f"Writing data for {outname}...")
         with (args.outpath / "instances_{}.json".format(outname)).open("wt") as f:
             f.write(coco_json)
+    print("Done.")
